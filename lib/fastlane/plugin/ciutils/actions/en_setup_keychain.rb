@@ -33,10 +33,6 @@ module Fastlane
       end
 
       def self.remove_keychain_if_exists(keychain_name)
-        # set original keychain shared var
-        original = Fastlane::Actions.sh("security default-keychain", log: false).strip
-        Actions.lane_context[Actions::SharedValues::ORIGINAL_DEFAULT_KEYCHAIN] = original
-
         # set shared var
         current_keychain_name = Helper::CiutilsHelper.en_keychain_name(keychain_name)
         Actions.lane_context[SharedValues::EN_KEYCHAIN_NAME] = current_keychain_name
