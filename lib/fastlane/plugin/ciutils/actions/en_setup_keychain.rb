@@ -34,8 +34,12 @@ module Fastlane
 
       def self.remove_keychain_if_exists(keychain_name)
         # set shared var
+        
+        puts "Removing #{keychain_name}"
         current_keychain_name = Helper::CiutilsHelper.en_keychain_name(keychain_name)
         Actions.lane_context[SharedValues::EN_KEYCHAIN_NAME] = current_keychain_name
+
+        puts "Actually Removing #{current_keychain_name}"
 
         other_action.en_remove_keychain
       end
