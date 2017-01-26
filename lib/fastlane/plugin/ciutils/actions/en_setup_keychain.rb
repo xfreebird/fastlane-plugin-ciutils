@@ -13,7 +13,7 @@ module Fastlane
 
         other_action.create_keychain(
           name: keychain_name,
-          default_keychain: true,
+          default_keychain: false,
           unlock: true,
           timeout: 9600,
           lock_when_sleeps: false,
