@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.author        = %q{Nicolae Ghimbovschi}
   spec.email         = %q{xfreebird@gmail.com}
 
-  spec.summary       = %q{Various utilities for CI and command line}
+  spec.summary       = %q{Various utilities for iOS CI}
   spec.homepage      = "https://github.com/xfreebird/fastlane-plugin-ciutils"
   spec.license       = "MIT"
 
@@ -17,10 +17,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'fastlane-plugin-update_project_codesigning'
-  spec.add_dependency 'fastlane-plugin-jira_transition'
   spec.add_dependency 'slather'
   spec.add_dependency 'ocunit2junit'
+  spec.add_dependency 'xcodeproj'
+  spec.add_dependency 'plist'
 
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'bundler'

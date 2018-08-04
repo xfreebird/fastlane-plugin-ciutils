@@ -1,0 +1,16 @@
+Demo/FastlaneDemo.xcodeproj:
+  common:
+    CODE_SIGN_IDENTITY: iOS Distribution
+    DEVELOPMENT_TEAM: H86U5Z8HYB
+    CODE_SIGN_STYLE: Manual
+    BUNDLE_ID: com.ghimbovschi.FastlaneDemo
+  targets:
+    FastlaneDemo:
+      PRODUCT_BUNDLE_IDENTIFIER: ${BUNDLE_ID}
+      PROVISIONING_PROFILE_SPECIFIER: match AppStore $(PRODUCT_BUNDLE_IDENTIFIER)
+
+Demo/FastlaneDemo/Info.plist:
+  CFBundleDisplayName: My Demo App
+
+Demo/FastlaneDemo/FastlaneDemo.entitlements:
+  aps-environment: production
