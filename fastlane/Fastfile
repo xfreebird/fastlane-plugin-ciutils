@@ -1,3 +1,31 @@
-lane :test do
-  ciutils
+default_platform :ios
+
+platform :ios do
+  before_all do
+    en_ci_utils_init
+  end
+
+  # example with match
+  lane :test do
+    en_setup_keychain
+    en_setup_project
+    match
+    gym
+  end
+
+  # example with match
+  lane :test_without_match do
+    # you'll need provide the cert file to be imported in the temporary keychain
+    en_setup_keychain
+    en_setup_project
+    en_install_provisioning_profiles
+    gym
+  end
+
+  after_all do |lane|
+    en_remove_keychain
+  end
+
+  error do |lane, exception|
+  end
 end

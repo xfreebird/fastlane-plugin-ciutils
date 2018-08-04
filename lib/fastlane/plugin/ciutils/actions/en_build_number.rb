@@ -2,9 +2,7 @@ module Fastlane
   module Actions
     class EnBuildNumberAction < Action
       def self.run(params)
-        build_number = ENV['BUILD_NUMBER']
-        return "1" unless ENV['BUILD_NUMBER']
-        build_number
+        return Helper::CiutilsHelper.en_ci_build_number()
       end
 
       #####################################################

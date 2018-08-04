@@ -23,11 +23,19 @@ module Fastlane
         # set shared var
         current_keychain_name = Helper::CiutilsHelper.en_keychain_name(keychain_name)
         Actions.lane_context[SharedValues::EN_KEYCHAIN_NAME] = current_keychain_name
+        ENV['MATCH_KEYCHAIN_NAME'] = keychain_name
+        ENV['MATCH_KEYCHAIN_PASSWORD'] = keychain_password
+
+        cert_path = params[:certp12_path]
+        unless File.exist?(cert_path)
+          UI.message("Skipping keychain certificate import. File doesn't exist.")
+          return
+        end
 
         other_action.import_certificate(
           keychain_name: current_keychain_name,
           keychain_password: keychain_password,
-          certificate_path: params[:certp12_path],
+          certificate_path: cert_path,
           certificate_password: params[:certp12_password]
         )
       end
