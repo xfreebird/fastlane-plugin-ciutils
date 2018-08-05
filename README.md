@@ -1,6 +1,7 @@
 # ciutils plugin
 
 [![fastlane Plugin Badge](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-ciutils)
+[![Build Status](https://img.shields.io/circleci/project/xfreebird/fastlane-plugin-ciutils/master.svg?style=flat)](https://circleci.com/gh/xfreebird/fastlane-plugin-ciutils)
 
 ## Getting Started
 
