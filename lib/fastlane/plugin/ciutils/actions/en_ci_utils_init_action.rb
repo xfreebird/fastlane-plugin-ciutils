@@ -2,27 +2,46 @@ module Fastlane
   module Actions
     class EnCiUtilsInitAction < Action
       def self.run(params)
-        # gym evn variables
-        ENV['GYM_OUTPUT_DIRECTORY'] = "build"
-        ENV['GYM_BUILDLOG_PATH'] = "build/logs/gym"
+        output_path = "./build"
+        reports_path = "#{output_path}/reports"
+        logs_path = "#{output_path}/logs"
 
-        # scan env variables
-        ENV['SCAN_OUTPUT_DIRECTORY'] = "build/reports/unittests"
-        ENV['SCAN_BUILDLOG_PATH'] = "build/logs/scan/"
-        ENV['SCAN_DERIVED_DATA_PATH'] = "build/deriveddata"
+        ENV['ENCI_OUTPUT_PATH'] = output_path
+        ENV['ENCI_REPORTS_PATH'] = reports_path
+        ENV['ENCI_LOGS_PATH'] = logs_path
+
+        # gym: ipa
+        ENV['GYM_OUTPUT_DIRECTORY'] = output_path
+        ENV['GYM_BUILDLOG_PATH'] = "#{logs_path}/gym"
+        ENV['GYM_RESULT_BUNDLE'] = "true"
+        ENV['GYM_DERIVED_DATA_PATH'] = "#{output_path}/deriveddata_gym"
+
+        # scan: unit tests
+        ENV['SCAN_OUTPUT_DIRECTORY'] = "#{reports_path}/unittests"
+        ENV['SCAN_BUILDLOG_PATH'] = "#{logs_path}/scan/"
+        ENV['SCAN_DERIVED_DATA_PATH'] = "#{output_path}/deriveddata_scan"
         ENV['SCAN_OUTPUT_TYPES'] = "html,junit,json-compilation-database"
+        ENV['SCAN_CONFIGURATION'] = "Debug"
+        ENV['SCAN_XCARGS'] = "COMPILER_INDEX_STORE_ENABLE=NO"
 
-        ENV['FL_SLATHER_BUILD_DIRECTORY'] = "build/deriveddata"
-        ENV['FL_SLATHER_OUTPUT_DIRECTORY'] = "build/reports"
+        # slather: code coverage reports
+        ENV['FL_SLATHER_BUILD_DIRECTORY'] = "#{output_path}/deriveddata_scan"
+        ENV['FL_SLATHER_OUTPUT_DIRECTORY'] = "#{reports_path}"
         ENV['FL_SLATHER_COBERTURA_XML_ENABLED'] = "true"
         ENV['FL_SLATHER_USE_BUNDLE_EXEC'] = "true"
         ENV['FL_SLATHER_HTML_ENABLED'] = "false"
+        ENV['FL_SLATHER_INPUT_FORMAT'] = "profdata"
+        ENV['FL_SLATHER_CONFIGURATION'] = "Debug"
 
-        # swiftlint
-        ENV['FL_SWIFTLINT_OUTPUT'] = "./build/reports/swiftlint.txt"
+        # swiftlint: static code analysis and linter
+        ENV['FL_SWIFTLINT_OUTPUT'] = "#{reports_path}/swiftlint.txt"
 
-        # lizard
-        ENV['FL_LIZARD_OUTPUT'] = "../build/reports/lizard-report.xml"
+        # lizard: static code analysis and linter
+        ENV['FL_LIZARD_OUTPUT'] = "#{reports_path}/lizard-report.xml"
+
+        # oclint: static code analysis and linter
+        ENV['FL_OCLINT_REPORT_TYPE'] = "pmd"
+        ENV['FL_OCLINT_ENABLE_CLANG_STATIC_ANALYZER'] = "true"
 
         ENV['BUILD_NUMBER'] = Helper::CiutilsHelper.en_ci_build_number()
         ENV['FL_BUILD_NUMBER_BUILD_NUMBER'] = ENV['BUILD_NUMBER']

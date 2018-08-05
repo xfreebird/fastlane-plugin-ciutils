@@ -16,21 +16,22 @@ Various utilities for CI and Xcode project configuration.
 
 action                   |description
 -------------------------|-------
-`en_ci_utils_init`            | Initializes several environment variables:  <br>**gym**<br>`GYM_OUTPUT_DIRECTORY`=**`build`**<br> `GYM_BUILDLOG_PATH`=**`build/logs/gym`**  <br><br>**scan**<br>`SCAN_OUTPUT_DIRECTORY`=**`build/reports/unittests`**<br>`SCAN_BUILDLOG_PATH`=**`build/logs/scan/`**<br>`SCAN_DERIVED_DATA_PATH`=**`build/deriveddata`** <br>`SCAN_OUTPUT_TYPES`=**`html,junit,json-compilation-database`**<br><br>**slather**<br>`FL_SLATHER_BUILD_DIRECTORY`=**`build/deriveddata`**<br>`FL_SLATHER_USE_BUNDLE_EXEC`=**`true`**<br>`FL_SLATHER_OUTPUT_DIRECTORY`=**`build/reports/`**<br> `FL_SLATHER_COBERTURA_XML_ENABLED`=**`true`**<br><br>**build number**<br>`BUILD_NUMBER` and `FL_BUILD_NUMBER_BUILD_NUMBER` are initialized with the current build number regardless of CI environment. When run on desktop, it us always `1`<br><br>
-`en_profile_name`    | Returns the provisioning profile name by path or uuid
+`en_ci_utils_init`            | Initializes enviornment variables for **gym**, **scan**, **slather**, **oclint**, **swiftlint** and **lizard**. <br> It forces all these actions to put all outputs to the **build** folder (e.g. derived data, logs, scan reports, slather reports, oclint report, lizard reports and swiftlint reports)
+`en_setup_project` | Updates Xcode projects, Info.plist, Entitlements file and any other plist file using values from the provided yaml file [example `appstore.yml`](Demo/config/appstore.yml)
+`en_create_sonar_reports` | Creates sonarqube reports (unit tests, code coverage, static code analysis with swiftlint, oclint and lizard) to be used with the open source sonarqube plugins for Swift and Objective-C
 `en_build_number`    | Returns the value of current build number regardless of CI environment. If run on desktop, then is always `1`
-`en_setup_keychain`  | Creates a keychain and imports the provided certificate
+`en_setup_keychain`  | Creates a keychain and if provided, it imports the give certificate file. It also updates **match** environment variables to use the new created keychain.
 `en_remove_keychain` | Removes the keychain created by ```en_setup_keychain``` and restores the default keychain
 `en_git_changelog`   | Creates the changelog based on git commits by filtering commit messages by a keyword
 `en_close_simulator` | Quits the simulator
-`en_install_provisioning_profiles` | Copies all provisioning profiles from project folder to `~/Library/MobileDevice/Provisioning Profiles`
-`en_setup_project` | Updates Xcode projects, Info.plist, Entitlements file and any other plist file using values from the provided yaml file.
+`en_install_provisioning_profiles` | Copies all provisioning profiles from project folder to `~/Library/MobileDevice/Provisioning Profiles`. <br> Useful when signing certificates and provisioning profiles are managed directly from the Fastfile.
+`en_profile_name`    | Returns the provisioning profile name by path or uuid
 
 
 
 ## Example
 
-Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, running `fastlane install_plugins` and `bundle exec fastlane test`.
+Check out the [example `Fastfile`](fastlane/Fastfile) and [project `FastlaneDemo`](Demo) to see how to use this plugin. Try it by cloning the repo, running `fastlane install_plugins` and `bundle exec fastlane build`.
 
 ## Run tests for this plugin
 

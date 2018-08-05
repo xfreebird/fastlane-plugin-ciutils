@@ -6,14 +6,14 @@ platform :ios do
   end
 
   # example with match
-  lane :test do
+  lane :build do
     en_setup_keychain
     en_setup_project
     match
     gym
   end
 
-  # example with match
+  # example without match
   lane :test_without_match do
     # you'll need provide the cert file to be imported in the temporary keychain
     en_setup_keychain
@@ -22,10 +22,18 @@ platform :ios do
     gym
   end
 
+  lane :create_sonar_reports do
+    en_setup_project
+    scan
+    slather
+    en_create_sonar_reports
+  end
+
   after_all do |lane|
     en_remove_keychain
   end
 
   error do |lane, exception|
+    en_remove_keychain
   end
 end

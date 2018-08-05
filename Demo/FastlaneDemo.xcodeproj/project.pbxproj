@@ -7,15 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D10D41D821171F4D00D45526 /* Swiftfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D41D721171F4D00D45526 /* Swiftfile.swift */; };
 		D1896D4C211625BF00B87852 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1896D4B211625BF00B87852 /* AppDelegate.m */; };
 		D1896D4F211625BF00B87852 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1896D4E211625BF00B87852 /* ViewController.m */; };
 		D1896D52211625BF00B87852 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1896D50211625BF00B87852 /* Main.storyboard */; };
 		D1896D54211625C000B87852 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1896D53211625C000B87852 /* Assets.xcassets */; };
 		D1896D57211625C000B87852 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1896D55211625C000B87852 /* LaunchScreen.storyboard */; };
 		D1896D5A211625C000B87852 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1896D59211625C000B87852 /* main.m */; };
+		D18EA4752116FB1A00CF9CB7 /* FastlaneDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D18EA4742116FB1A00CF9CB7 /* FastlaneDemoTests.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D18EA4772116FB1A00CF9CB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1896D3F211625BF00B87852 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1896D46211625BF00B87852;
+			remoteInfo = FastlaneDemo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		D10D41D721171F4D00D45526 /* Swiftfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swiftfile.swift; sourceTree = "<group>"; };
 		D1896D47211625BF00B87852 /* FastlaneDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastlaneDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1896D4A211625BF00B87852 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D1896D4B211625BF00B87852 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -27,10 +40,20 @@
 		D1896D58211625C000B87852 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1896D59211625C000B87852 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D1896D60211625E800B87852 /* FastlaneDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FastlaneDemo.entitlements; sourceTree = "<group>"; };
+		D18EA4722116FB1A00CF9CB7 /* FastlaneDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D18EA4742116FB1A00CF9CB7 /* FastlaneDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastlaneDemoTests.m; sourceTree = "<group>"; };
+		D18EA4762116FB1A00CF9CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D1896D44211625BF00B87852 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D18EA46F2116FB1A00CF9CB7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				D1896D49211625BF00B87852 /* FastlaneDemo */,
+				D18EA4732116FB1A00CF9CB7 /* FastlaneDemoTests */,
 				D1896D48211625BF00B87852 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				D1896D47211625BF00B87852 /* FastlaneDemo.app */,
+				D18EA4722116FB1A00CF9CB7 /* FastlaneDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,8 +94,18 @@
 				D1896D55211625C000B87852 /* LaunchScreen.storyboard */,
 				D1896D58211625C000B87852 /* Info.plist */,
 				D1896D59211625C000B87852 /* main.m */,
+				D10D41D721171F4D00D45526 /* Swiftfile.swift */,
 			);
 			path = FastlaneDemo;
+			sourceTree = "<group>";
+		};
+		D18EA4732116FB1A00CF9CB7 /* FastlaneDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				D18EA4742116FB1A00CF9CB7 /* FastlaneDemoTests.m */,
+				D18EA4762116FB1A00CF9CB7 /* Info.plist */,
+			);
+			path = FastlaneDemoTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,6 +128,24 @@
 			productReference = D1896D47211625BF00B87852 /* FastlaneDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D18EA4712116FB1A00CF9CB7 /* FastlaneDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D18EA47B2116FB1A00CF9CB7 /* Build configuration list for PBXNativeTarget "FastlaneDemoTests" */;
+			buildPhases = (
+				D18EA46E2116FB1A00CF9CB7 /* Sources */,
+				D18EA46F2116FB1A00CF9CB7 /* Frameworks */,
+				D18EA4702116FB1A00CF9CB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D18EA4782116FB1A00CF9CB7 /* PBXTargetDependency */,
+			);
+			name = FastlaneDemoTests;
+			productName = FastlaneDemoTests;
+			productReference = D18EA4722116FB1A00CF9CB7 /* FastlaneDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -104,11 +157,16 @@
 				TargetAttributes = {
 					D1896D46211625BF00B87852 = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 0940;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
 							};
 						};
+					};
+					D18EA4712116FB1A00CF9CB7 = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = D1896D46211625BF00B87852;
 					};
 				};
 			};
@@ -126,6 +184,7 @@
 			projectRoot = "";
 			targets = (
 				D1896D46211625BF00B87852 /* FastlaneDemo */,
+				D18EA4712116FB1A00CF9CB7 /* FastlaneDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -141,6 +200,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D18EA4702116FB1A00CF9CB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -151,10 +217,27 @@
 				D1896D4F211625BF00B87852 /* ViewController.m in Sources */,
 				D1896D5A211625C000B87852 /* main.m in Sources */,
 				D1896D4C211625BF00B87852 /* AppDelegate.m in Sources */,
+				D10D41D821171F4D00D45526 /* Swiftfile.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D18EA46E2116FB1A00CF9CB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D18EA4752116FB1A00CF9CB7 /* FastlaneDemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D18EA4782116FB1A00CF9CB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1896D46211625BF00B87852 /* FastlaneDemo */;
+			targetProxy = D18EA4772116FB1A00CF9CB7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D1896D50211625BF00B87852 /* Main.storyboard */ = {
@@ -290,18 +373,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_ID = com.ghimbovschi.FastlaneDemo;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FastlaneDemo/FastlaneDemo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = H86U5Z8HYB;
 				INFOPLIST_FILE = FastlaneDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ghimbovschi.FastlaneDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = "${BUNDLE_ID}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore $(PRODUCT_BUNDLE_IDENTIFIER)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -310,19 +397,66 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_ID = com.ghimbovschi.FastlaneDemo;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FastlaneDemo/FastlaneDemo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = H86U5Z8HYB;
 				INFOPLIST_FILE = FastlaneDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ghimbovschi.FastlaneDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = "${BUNDLE_ID}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore $(PRODUCT_BUNDLE_IDENTIFIER)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D18EA4792116FB1A00CF9CB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_ID = com.ghimbovschi.FastlaneDemo;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = H86U5Z8HYB;
+				INFOPLIST_FILE = FastlaneDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghimbovschi.FastlaneDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FastlaneDemo.app/FastlaneDemo";
+			};
+			name = Debug;
+		};
+		D18EA47A2116FB1A00CF9CB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_ID = com.ghimbovschi.FastlaneDemo;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = H86U5Z8HYB;
+				INFOPLIST_FILE = FastlaneDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghimbovschi.FastlaneDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FastlaneDemo.app/FastlaneDemo";
 			};
 			name = Release;
 		};
@@ -343,6 +477,15 @@
 			buildConfigurations = (
 				D1896D5E211625C000B87852 /* Debug */,
 				D1896D5F211625C000B87852 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D18EA47B2116FB1A00CF9CB7 /* Build configuration list for PBXNativeTarget "FastlaneDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D18EA4792116FB1A00CF9CB7 /* Debug */,
+				D18EA47A2116FB1A00CF9CB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
