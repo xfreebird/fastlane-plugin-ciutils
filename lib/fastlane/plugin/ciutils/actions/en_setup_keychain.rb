@@ -32,6 +32,8 @@ module Fastlane
           return
         end
 
+        cert_path = "../#{cert_path}"
+
         other_action.import_certificate(
           keychain_name: current_keychain_name,
           keychain_password: keychain_password,
