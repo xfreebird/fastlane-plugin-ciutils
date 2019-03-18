@@ -59,7 +59,7 @@ module Fastlane
         end
       end
 
-      def self.normalize_paths(paths, use_relative)
+      def self.normalize_paths(paths, use_relative = false)
         paths.split(",").map do |path|
           unless use_relative
             File.expand_path(path.strip)
