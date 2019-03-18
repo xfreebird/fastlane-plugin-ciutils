@@ -59,15 +59,22 @@ module Fastlane
         end
       end
 
-      def self.normalize_paths(paths)
-        paths.split(",").map { |path| File.expand_path(path.strip) }
+      def self.normalize_paths(paths, use_relative)
+        paths.split(",").map do |path|
+          unless use_relative
+            File.expand_path(path.strip)
+          else
+            path.strip
+          end
+        end
       end
 
       def self.lizard_path_args(params)
         include_files = ""
+        use_relative_paths = params[:lizard_use_relative_paths]
 
         if params[:include_path]
-          self.normalize_paths(params[:include_path]).each do |path|
+          self.normalize_paths(params[:include_path], use_relative_paths).each do |path|
             include_files += " '#{path}' " 
           end
         end
@@ -143,6 +150,13 @@ module Fastlane
           FastlaneCore::ConfigItem.new(key: :lizard_extra_args,
                                        env_name: "FL_EN_LIZARD_EXTRA ARGS",
                                        description: 'Extra command line args for lizard',
+                                       optional: true),
+
+          FastlaneCore::ConfigItem.new(key: :lizard_use_relative_paths,
+                                       env_name: "FL_EN_LIZARD_USE_RELATIVE_PATHS",
+                                       description: "Use relative paths in lizard reports",
+                                       is_string: false,
+                                       default_value: true,
                                        optional: true)
         ]
       end
