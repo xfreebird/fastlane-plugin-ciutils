@@ -13,6 +13,7 @@ module Fastlane
 
         lizard_extra_args = params[:lizard_extra_args]
         swiftlint_extra_args = params[:swiftlint_extra_args]
+        swiftlint_config_arg = swiftlint_config_path_arg(params)
 
         swiftlint_path_args = self.swiftlint_path_args(params)
         lizard_path_args = self.lizard_path_args(params)
@@ -39,7 +40,7 @@ module Fastlane
 
         # run static code analysis
         unless params[:skip_swiftlint_analysis]
-          sh("swiftlint lint #{swiftlint_path_args} --quiet > '#{swiftlint_output_path}' || exit 0")
+          sh("swiftlint lint #{swiftlint_path_args} #{swiftlint_config_arg} #{swiftlint_extra_args} --quiet > '#{swiftlint_output_path}' || exit 0")
         end
 
         unless params[:skip_lizard_analysis]
@@ -89,6 +90,28 @@ module Fastlane
         include_files + exclude_files
       end
 
+      def self.swiftlint_config_path_arg(params)
+        file_path = params[:swiftlint_config_path]
+        config_path_arg = ""
+
+        if File.exist?('.swiftlint.yml')
+          config_path_arg = File.expand_path('.swiftlint.yml')
+        end
+
+        if file_path != nil && !file_path.strip.empty?
+          config_path_arg = File.expand_path(file_path.strip)
+          if !File.exist?(config_path_arg)
+            config_path_arg = ""
+          end
+        end
+
+        if !config_path_arg.strip.empty?
+          return "--config '#{config_path_arg}'"
+        else
+          return ""
+        end
+      end
+
       def self.swiftlint_path_args(params)
         include_files = ""
 
@@ -133,6 +156,11 @@ module Fastlane
                                        description: "Skip running swiftlint code analysis",
                                        is_string: false,
                                        default_value: false,
+                                       optional: true),
+
+          FastlaneCore::ConfigItem.new(key: :swiftlint_config_path,
+                                       env_name: "FL_EN_SWIFTLINT_CONFIG_PATH",
+                                       description: 'Path to .swiftlint.yml',
                                        optional: true),
 
           FastlaneCore::ConfigItem.new(key: :swiftlint_extra_args,
